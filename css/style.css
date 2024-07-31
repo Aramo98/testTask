@@ -1,0 +1,2462 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+:root {
+    --firstColor: #1E3A8A;
+    --secondColor: #fff;
+    --thirdColor: #1D4ED8;
+    --fourthColor: #1E0044;
+    --Display: flex;
+    --justifyCont: center;
+    --items: center;
+    --fontFamilyFirst: Play-Regular;
+    --fontFamilySecond: Play-Bold;
+}
+
+@font-face {
+    font-family: Play-Bold;
+    src: url(../font/Play-Bold.ttf);
+}
+
+@font-face {
+    font-family: Play-Regular;
+    src: url(../font/Play-Regular.ttf);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.sideBtns{
+    width: 60px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 140px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 25px;
+    position: fixed;
+    z-index: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    right: 0;
+    top: 25%;
+    font-size: 29px;
+}
+
+.sideBtns>a{
+    animation: colorChange  alternate infinite 1s;
+    color: var(--secondColor);
+}
+
+@keyframes colorChange {
+    0%{
+        
+        text-shadow:#0891B2 2px 2px 25px;
+    }
+    100%{
+        text-shadow:#0891B2 2px 1px 25px,
+                    #0891B2 2px 1px 35px,
+                    #0891B2 2px 1px 45px,
+                    #0891B2 2px 1px 55px;
+    }
+}
+
+.sideBtns>hr{
+    width: 45px;
+}
+.modalBlock {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+.modalBlock>.content {
+    width: 450px;
+    height: 450px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    background: linear-gradient( #2c3244 43%, #000000 94%);
+    position: relative;
+    font-family: Play-Bold;
+    gap: 15px;
+    border-radius: 15px;
+    color: var(--secondColor);
+    transition: all 0.5s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    border: 4px solid #7f8081;
+}
+
+.modalBlock.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modalBlock.open .content {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.modalBlock>.content>h3 {
+    font-size: 25px;
+}
+
+.modalBlock>.content>h6 {
+    font-size: 15px;
+    text-align: center;
+}
+
+
+.modalBlock>.content>.closeModalBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+}
+
+.modalBlock>.content>.formBlock {
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    gap: 15px;
+}
+
+.modalBlock>.content>.formBlock>form {
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modalBlock>.content>.formBlock>form>input,
+.modalBlock>.content>.formBlock>form>button {
+    width: 350px;
+    height: 55px;
+    font-family: Play-Regular;
+    border-radius: 15px;
+}
+
+.modalBlock>.content>.formBlock>form>button {
+    font-size: 25px;
+    color: var(--secondColor);
+    background-color:  #2c3244;
+    border: none;
+
+    border: 2px solid #9e9fa1
+}
+
+.modalBlock>.content>.formBlock>form>input {
+    outline: none;
+    padding: 15px;
+}
+
+.modalBlock>.content>.formBlock>form .checkBoxAndSpan {
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    text-align: center;
+    padding: 15px;
+    gap: 11px;
+}
+
+.modalBlock>.content>.formBlock>form .checkBoxAndSpan>input {
+    margin-top: 1px;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    border: 1px solid var(--secondColor);
+    padding: 5px;
+    position: relative;
+    outline: none;
+}
+
+.modalBlock>.content>.formBlock>form .checkBoxAndSpan>input[type=checkbox]:checked {
+    background-image: url(https://alpham.pro/local/templates/gradient/img/checkbox__select.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.modalBlock>.content>.formBlock>form .checkBoxAndSpan>span {
+    font-size: 12px;
+}
+
+.modalBlock>.content>.formBlock>form .checkBoxAndSpan>span>a {
+    color: var(--secondColor);
+    font-size: 12px;
+}
+
+.navigationBar{
+    width: 0;
+    height: 100%;
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background:  linear-gradient(128deg, #2c3244 41%, #868383 94%);
+    position: fixed;
+    z-index: 3;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+
+}
+
+.navigationBar.active{
+    width: 250px;
+}
+
+.navigationBar>nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.navigationBar>nav .QuestionBtn {
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    padding: 15px 55px;
+    gap: 15px;
+    border: none;
+    border-radius: 12px;
+    background:  #1b1e28 ;
+    font-family: Play-Regular;
+    color: var(--secondColor);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.navigationBar>nav  .QuestionBtn .imgBlock {
+    width: 15px;
+    height: 15px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.navigationBar>nav>ul{
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+}
+
+.navigationBar>nav>ul>li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;width: 100%;
+    border-bottom: 3px solid black;
+    gap: 15px;
+    padding: 15px;
+}
+.navigationBar>nav>ul>li>a{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;position: relative;
+    gap: 15px;
+}
+
+
+
+.navigationBar>nav>ul>li>a>.iconBlock{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigationBar>nav>ul>li>a>.iconBlock1{
+    background-image: url(https://alpham.pro/local/templates/gradient/components/bitrix/menu/top_mobile/img/service_menu.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navigationBar>nav>ul>li>a>.iconBlock2{
+    background-image: url(https://alpham.pro/local/templates/gradient/components/bitrix/menu/top_mobile/img/case_menu.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navigationBar>nav>ul>li>a>.iconBlock3{
+    background-image: url(	https://alpham.pro/local/templates/gradient/components/bitrix/menu/top_mobile/img/more_menu.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.headerfirstVariant {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    transition: all 0.5s ease;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    z-index: 2;
+    padding: 20px;
+}
+.headerSecondVariant {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    transition: all 0.5s ease;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    z-index: 2;
+    padding: 20px;
+}
+
+
+.headerSecondVariant > .headerBlock{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.headerSecondVariant > .headerBlock .logo{
+    width: 150px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerSecondVariant > .headerBlock .inputBox{
+    width: 90%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+.headerSecondVariant > .headerBlock .inputBox>input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding-left: 10%;
+}
+
+.headerSecondVariant > .headerBlock .inputBox .iconBlock{
+    position: absolute;
+    left: 15px;
+}
+
+.headerSecondVariant > .headerBlock a{
+    color: var(--secondColor);
+    font-family: var(--fontFamilySecond);
+}
+
+.hamburgerBtn{
+    width: 35px;
+    height: 35px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    background: linear-gradient(128deg, #ffffff 41%, #868383 94%);
+    background-clip: text;
+    border: 1px solid #ccc;
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    gap: 30%;
+    position: relative;
+}
+
+nav>ul {
+    font-family: Play-Bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    list-style: none;
+}
+
+
+ul>li>a {
+    text-decoration: none;
+    color: var(--secondColor);
+    transition: all 0.5s ease;
+}
+
+
+
+ul>li>a:hover {
+    text-shadow: var(--thirdColor) 2px 1px 7px,
+        var(--secondColor) 2px 1px 10px,
+        var(--secondColor) 2px 1px 25px,
+        var(--thirdColor) 2px 1px 35px;
+}
+
+.dropdown{
+    position: absolute;
+    background: linear-gradient(128deg, #2c3244 41%, #000000 94%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 36px;
+    transform: translateY(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+nav>ul>li:hover  .dropdown{
+    transform: translateY(15px); 
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown>ul{
+    list-style: none;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dropdown>ul>li>a:hover{
+    text-decoration: underline;
+}
+
+
+.childDropdown{
+    position: absolute;
+    width: 66%;
+    left: 100%;
+    transition: all 0.5s;
+    height: 50px;
+    top: 2%;
+    background-color: blanchedalmond;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+.childDropdown>ul{
+    list-style: none;
+}
+
+.dropdown>ul>li>a:hover .childDropdown{
+    opacity: 1;
+    visibility: visible;
+}
+
+nav>.iconBlock {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondColor);
+    cursor: pointer;
+
+}
+
+.searchBlock {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 100px;
+    padding: 15px;
+    transform: translateY(-17px);
+    opacity: 0;
+    visibility: hidden;
+    gap: 20px;
+    transition: all 0.5s ease;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+
+.searchBlock.active {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+}
+
+.searchBlock>form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.searchBlock>form>input {
+    width: 550px;
+    height: 70px;
+    border-radius: 40px;
+    background: none;
+    background-image: linear-gradient(to right, #022C22, #09090B, #500724);
+    padding-left: 45px;
+    font-family: Play-Regular;
+    font-size: 19px;
+    border: none;
+    color: var(--secondColor);
+    outline: none;
+    transition: all 0.5s ease;
+}
+
+.searchBlock>form>input.scrolling{
+    height: 50px;
+}
+
+.searchBlock>form>button {
+    position: absolute;
+    right: 15px;
+    padding: 15px;
+    font-size: 25px;
+    border: none;
+    background: none;
+    font-family: Play-Bold;
+    transition: all 0.5s ease;
+    color: var(--secondColor);
+    cursor: pointer;
+}
+
+.searchBlock>form>button:hover {
+    text-shadow: var(--thirdColor) 2px 1px 7px,
+        var(--secondColor) 2px 1px 10px,
+        var(--secondColor) 2px 1px 25px,
+        var(--thirdColor) 2px 1px 35px;
+}
+
+.searchBlock>form .icon {
+    position: absolute;
+    z-index: 3;
+    color: var(--secondColor);
+    left: 15px;
+}
+
+.closeBtn {
+    font-size: 30px;
+    color: var(--secondColor);
+}
+
+.phoneNumberAndButtonBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Play-Regular;
+    gap: 15px;
+}
+
+.phoneNumberAndButtonBlock>a {
+    transition: all 0.5s ease;
+    text-decoration: none;
+    color: var(--secondColor);
+}
+
+.phoneNumberAndButtonBlock>a:hover {
+    text-shadow: var(--secondColor) 2px 1px 35px,
+        2px 1px 25px,
+        2px 1px 15px;
+}
+
+.phoneNumberAndButtonBlock .QuestionBtn {
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    padding: 15px;
+    gap: 15px;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 20px;
+    background:  #2c3244 ;
+    font-family: Play-Regular;
+    color: var(--secondColor);
+    cursor: pointer;
+}
+
+.phoneNumberAndButtonBlock .QuestionBtn .imgBlock {
+    width: 15px;
+    height: 15px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+/* Section One */
+
+.section {
+    width: 100%;
+    
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    position: relative;
+}
+
+.section1 {
+    overflow: hidden;
+    height: 120vh;
+    background: linear-gradient(-1deg, #97ebfe 8%, #2c3244 41%, #000000 94%)
+}
+
+.section1>img {
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+}
+
+.vectorsBlock{
+    position: absolute;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 650px;
+}
+.vectorsBlock>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section1 .content{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items:  var(--items);
+    flex-direction: column;
+}
+
+.section1 .content>.contentHeader>h2{
+color: var(--secondColor);
+font-family: Play-Bold;
+font-size: 45px;
+}
+.section1 .content>.imgBlock{
+    width: 550px;
+    height: 550px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items:  var(--items);
+    z-index: 1;
+   
+}
+
+.section1 .content>.imgBlock>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btnBlock{
+    z-index: 1;
+}
+
+.btnBlock>button{
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-family: Play-Bold;
+     background: linear-gradient( #2c3244 43%, #000000 94%);
+    color: var(--secondColor);
+    border: none;
+    font-size: 25px;
+    border: 3px solid var(--secondColor);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.btnBlock>button:hover{
+    transform: scale(1.1);
+}
+
+.section1 .content>.imgBlock>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.section2{
+    gap: 15px;
+    height: 452px;
+display: var(--Display);
+justify-content: var(--justifyCont);
+align-items: var(--items);
+}
+
+.section2>.imgBlock{
+    width: 100%;
+    height: 100%;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    background: linear-gradient(180deg, #97ebfe 13%,#2c3244 43%,#000000 94%);
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    gap: 15px;
+    padding: 25px;
+}
+
+.section2>.imgBlock>h2{
+    color: var(--secondColor);
+    font-size: 30px;
+    font-family: var(--fontFamilySecond);
+}
+
+.section2 > .imgBlock > .iconsBlock{
+    width: 100%;
+    height: 100%;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+
+    gap: 15px;
+}
+
+.section2>.imgBlock>.iconsBlock > .block{
+    width: 300px;
+    height: 100%;
+
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+}
+
+.section2>.imgBlock>.iconsBlock > .block> .icon{
+    width: 100px;
+    height: 100px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+.section2>.imgBlock>.iconsBlock > .block> .icon>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section2>.imgBlock>.iconsBlock > .block>p{
+font-family: var(--fontFamilySecond);
+font-size: 25px;
+color: var(--secondColor);
+text-align: center;
+}
+
+.section3{
+    height: auto;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(360deg, #97ebfe 16%, #2c3244 43%, #000000 94%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.section3 >.vectorsGroup{
+position: absolute;
+width: 100%;
+height: 1000px;
+display: var(--Display);
+justify-content: var(--justifyCont);
+align-items: var(--items);
+
+}
+
+
+.section3  .vectorsGroup>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section3 .GeneralBlock{
+    width: 100%;
+    height: 450px;
+position: relative;
+
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    gap: 15px;
+    
+}
+
+.section3 .GeneralBlock .block{
+    width: 619px;
+    height: auto;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    overflow: hidden;
+     background: linear-gradient( #2c3244 43%, #000000 94%);
+    border-radius: 6px;
+
+}
+
+.section3 .GeneralBlock .block>.imgBlock{
+    width: 585px;
+    height: 250px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section3 .GeneralBlock .block>.imgBlock>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section3 .GeneralBlock .block .lists{
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+padding-left: 15px;
+    font-family: var(--fontFamilySecond);
+    color: var(--secondColor);
+}
+
+.section3 .GeneralBlock .block .lists>ul{
+    list-style: none;
+     margin-top: 3px;
+}
+
+.section3 .GeneralBlock .block .lists>ul>li{
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: var(--items);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.section3 > .formBlock{
+    width: 550px;
+    height: 600px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    background: linear-gradient(360deg, #72bed0 16%, #2c3244 43%, #000000 94%);
+    gap: 15px;
+    
+}
+
+.section3 > .formBlock >h2,
+.section3 > .formBlock >p{
+    font-family: var(--fontFamilySecond);
+    color: var(--secondColor);
+    text-align: center;
+}
+
+.section3 > .formBlock>form{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;z-index: 1;
+}
+
+.section3 > .formBlock > form > .inputBox{
+    width: 350px;
+    height: 65px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.section3 > .formBlock > form > .inputBox>span{
+    font-family: var(--fontFamilySecond);
+}
+.section3 > .formBlock > form > .inputBox>input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border: 3px solid #403f40;
+    outline: none;
+    background: linear-gradient(#72bed0 16%, #2c3244 43%, #000000 94%);
+    padding-left: 15px;
+    border-radius: 10px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+}
+
+.section3 > .formBlock > form > .inputBox>input::placeholder{
+    color: var(--secondColor);
+}
+
+
+.section3 > .formBlock > form > .areaBox{
+    width: 350px;
+    height: 150px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.section3 > .formBlock > form > .areaBox>span{
+    font-family: var(--fontFamilySecond);
+}
+.section3 > .formBlock > form > .areaBox>textarea{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 3px solid #403f40;
+    background: linear-gradient( #72bed0 16%, #2c3244 43%, #000000 94%);
+    color: #D4D4D4;
+    outline: none;
+ padding: 15px;
+ resize: none;
+    text-align: left;
+    
+}
+
+.section3 > .formBlock > form > .areaBox>textarea::placeholder{
+    font-family: var(--fontFamilyFirst);
+    color: var(--secondColor);
+}
+
+.section3 > .formBlock > form > .submitBtn{
+    width: 350px;
+    height: 55px;
+    padding: 15px 35px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    font-size: 15px;
+    border: none;
+    border-radius: 15px;
+  
+    background: linear-gradient( #2c3244 43%, #000000 94%);;
+}
+
+.section4{
+    height: 910px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    position: relative;
+background: linear-gradient(176deg, #97ebfe 13%,#2c3244 43%,#000000 94%)
+}
+
+.section4 .content{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section4 .content> .header{
+    font-family: var(--fontFamilySecond);
+    color:  var(--secondColor);
+}
+
+.section4 .content .checksBlock{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+
+.section4 .content .checksBlock .lists{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section4 .content .checksBlock .lists>ul{
+    list-style: none;
+}
+.section4 .content .checksBlock .lists>ul>li{
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: var(--items); 
+    font-family: var(--fontFamilyFirst);
+    color: var(--secondColor);
+    font-size: 36px;
+    line-height: 71px;
+}
+
+.section4 .content .checksBlock .lists>ul>li>img{
+    width: 65px;
+    height: 65px;
+}
+
+.section4 .content .checksBlock .phoneImage{
+    width: 650px;
+    height: 700px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section4 .content .checksBlock .phoneImage>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section5{
+    height: 650px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    background: linear-gradient(1deg, #2c3244 43%, #000000 94%)
+}
+.section5>.headerBlock{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;  
+}
+
+.section5>.headerBlock>p{
+background-image: linear-gradient(12deg, #C64F87 38%, #9400FF 138%,#fff 100%);
+color: transparent;
+background-clip: text;
+font-family: var(--fontFamilyFirst);
+font-size: 25px;
+}
+
+.section5>.headerBlock>h2{
+color: var(--secondColor);
+font-family: var(--fontFamilySecond);
+}
+
+.section5 .otherBlock {
+    width: 100%;
+    height: 400px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    gap: 15px;
+}
+.section5 .otherBlock > .block{
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: var(--items);
+    width: 490px;
+    height: 220px;
+padding-left: 3%;
+    border-radius: 20px;
+    gap: 15px;
+    background: linear-gradient(#828ba5 43%,#000000 94%);
+}
+
+.section5 .otherBlock > .block > .imgBlock{
+    width: 200px;
+    height: 200px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 15px;
+    background: linear-gradient(#97ebfe 1%,#2c3244);
+}
+
+.section5 .otherBlock > .block > .imgBlock>span{
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    font-size: 10px;
+}
+
+.section5 .otherBlock > .block .content{
+    line-height: 34px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.section5 .otherBlock > .block .content>h2{
+    font-size: 15px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilySecond);
+}
+
+.section5 .otherBlock > .block .content>p{
+    font-size: 10px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+}
+
+.section5 .otherBlock > .block .content>span{
+    color: #C64F87;
+    font-family: var(--fontFamilyFirst);
+    font-size: 10px;
+}
+
+.section5 .otherBlock > .block .content>button{
+    padding: 10px 20px;
+    font-family: var(--fontFamilySecond);
+    border-radius: 10px;
+    color: var(--secondColor);
+    border: none;
+    background: linear-gradient(#2c3244 43%,#000000 94%);
+}
+
+.section6{
+    height: 900px;
+    background: linear-gradient(-180deg,#2c3244 43%,#000000 94%);
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: var(--items);
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+}
+.section6 .headerBlock{
+    width: 100%;
+    
+    text-align: center;
+    font-family: var(--fontFamilySecond);
+    font-size: 25px;
+    color: var(--secondColor);
+}
+
+.section6 .Blocks{
+    width: 100%;
+    height: auto;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-wrap: wrap;
+    gap: 29px;
+}
+
+.section6 .Blocks .Block{
+    width: 500px;
+    height: 250px;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.section6 > .Blocks > .Block> .topBlock{
+    display: var(--Display);
+    justify-content: space-between;
+    align-items: var(--items);
+    background-image: linear-gradient(#4c546c 43%,#000000 94%);
+    width: 80%;
+    height: 80px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.section6 > .Blocks > .Block> .topBlock>span{
+    color: var(--secondColor);
+   font-family: var(--fontFamilyFirst); 
+   font-size: 15px;   
+}
+
+.section6 > .Blocks > .Block> .topBlock>span:nth-child(2){
+    font-size: 25px;
+}
+
+.section6 > .Blocks > .Block> .centerBlock{
+    height: auto;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    color: var(--secondColor);
+    flex-direction: column;
+    font-family: var(--fontFamilyFirst);
+    line-height: 30px;
+}
+
+.section6 > .Blocks > .Block>  .centerBlock>span{
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    padding-left: 15px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    gap:  15px;
+}
+
+.section6 > .Blocks > .Block .buttonBlock>.orderBtn{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    padding: 15px 35px;
+    gap: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #21242c;
+    font-family: Play-Regular;
+    color: var(--secondColor);
+    cursor: pointer;
+    border: 3px solid #ccc;
+}
+
+.section6 > .Blocks > .Block .buttonBlock>button> .imgBlock{
+    width: 15px;
+    height: 15px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+
+.section7{
+    height: 900px;
+    background: linear-gradient(0deg,#2c3244 43%,#000000 94%);
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 75px;
+}
+
+.section7 > .headerBlock>h2{
+    text-align: center;
+    font-size: 30px;
+    font-family: var(--fontFamilySecond);
+    color: var(--secondColor);
+}
+
+.section7 > .headerBlock>p{
+    font-size: 20px;
+    font-family: var(--fontFamilyFirst);
+    text-align: center; 
+    color: var(--secondColor);
+}
+
+
+.section7 .formBlock{
+    width: 750px;
+    height: 450px;
+    background-image: linear-gradient(#4c546c 43%,#000000 94%);
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 3px;
+    padding-top: 25px;
+    gap: 27px
+}
+
+.section7 .formBlock .headerBlock{
+    text-align: center;
+    font-family: var(--fontFamilyFirst);
+    color: var(--secondColor);
+    
+}
+
+.section7 .formBlock> .formAndImage{
+
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    position: relative;
+}
+
+.section7 .formBlock> .formAndImage > form{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 25px;
+}
+
+.section7 .formBlock > .formAndImage > form > .inputBox{
+    width: 350px;
+    height: 65px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+
+    border: #97ebfe;
+    
+}
+.section7 .formBlock > .formAndImage > form > .inputBox .selectBtnSecond{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    right: 10.6px;
+    bottom: 91.2px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section7 .formBlock > .formAndImage > form > .inputBox .selectBlockSecond{
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    left: 35px;
+    transform: translate(-22.3px ,-108.3px);
+    opacity: 0;
+    visibility: hidden;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    transition: all 0.5s ease;
+    align-items: var(--items);
+    flex-direction: column;
+    background-color: #3b3b3b;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    gap: 15px;
+    font-size: 25px;
+    }
+    
+    .section7 .formBlock > .formAndImage > form > .inputBox .selectBlockSecond.active{
+        transform: translate(-22.3px ,-45.3px); 
+        opacity: 1;
+    visibility: visible;
+    }
+
+
+
+
+.section7 .formBlock > .formAndImage > form > .inputBox >input{
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+    border-radius: 15px;
+    padding: 15px;
+    background: none;
+    border: 2px solid  #507178;
+    font-family: var(--fontFamilyFirst);
+color: var(--secondColor);
+
+}
+
+.section7 .formBlock > .formAndImage > form > .inputBox >input::placeholder{
+font-family: var(--fontFamilyFirst);
+color: var(--secondColor);
+}
+
+
+.section7 .formBlock > .formAndImage > form > button{
+    width: 350px;
+    height: 65px; 
+    border-radius: 15px;
+    font-family: var(--fontFamilyFirst);
+   background-image: linear-gradient(#4c546c 43%,#000000 94%);
+    color: var(--secondColor);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.section7 .formBlock .formAndImage   .imgBlock{
+    width: 389px;
+    height: 350px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    position: absolute;
+    top: -135px;
+    left: 122%;
+}
+
+.section7 .formBlock .formAndImage  .imgBlock>img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.section8{
+    height: 350px;
+    background-image: linear-gradient(180deg, #2c3244 43%, #000000 94%);
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 25px;
+    line-height: 75px;
+}
+
+.section8 .headerBlock{
+    font-size: 20px;
+        font-family: var(--fontFamilySecond);
+        color: var(--secondColor);
+}
+
+.section8 .GeneralBlock{
+     width: 100%;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    gap: 10%;
+
+    
+}
+
+.section8 .GeneralBlock > .leftBlock{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+}
+
+.section8 .GeneralBlock > .leftBlock > .block{
+    width: 450px;
+    height: 55px;
+    display: var(--Display);
+    justify-content: space-between;
+    align-items: var(--items); 
+}
+
+.section8 .GeneralBlock > .leftBlock > .block>span{
+        font-size: 20px;
+        font-family: var(--fontFamilySecond);
+        color: var(--secondColor);
+}
+
+.section8 .GeneralBlock > .leftBlock > .block:nth-child(1){
+    border-top: 3px solid #507178;
+    border-bottom: 3px solid  #507178;
+}
+
+.section8 .GeneralBlock > .leftBlock > .block:nth-child(2){
+    border-bottom: 3px solid  #507178;
+}
+
+.section8 .GeneralBlock > .rightBlock{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section8 .GeneralBlock > .rightBlock .imgBlock{
+    width: 250px;
+    height: 50px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section9{
+    height: 900px;
+    background-image: linear-gradient(0deg, #2c3244 43%, #000000 94%);
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section9 .lastBlock{
+    width: 100%;
+    height: 1000px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+
+.section9 .lastBlock  .rectangle{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    position: relative;
+    width: 1307px;
+    height: 800px;
+    object-fit: cover;
+    border-bottom-right-radius: 39px;
+    border-bottom-left-radius: 39px;
+    border-top-left-radius: 64px;
+    background-color: #3b3b3b;
+    clip-path: polygon(calc(100% - 162px) 354px, calc(100% - 2px) 100%, 0px calc(100% - 4px), 0px 248px);
+}
+
+.section9 .lastBlock  .content{
+    position: absolute;
+    left: 9%;
+    top: 48%;
+    z-index: 1;
+}
+.section9 .lastBlock  .content>h2{
+    font-family: var(--fontFamilySecond);
+    font-size: 40px;
+    line-height: 45px;
+    color: var(--secondColor);
+}
+
+.section9 .lastBlock  .content>p{
+    font-family: var(--fontFamilySecond);
+    font-size: 20px;
+    line-height: 40px;
+    color: var(--secondColor);
+}
+
+.section9 .lastBlock  .content>span{
+    font-family: var(--fontFamilySecond);
+    font-size: 45px;
+    line-height: 45px;
+    color: var(--secondColor);
+}
+
+.section9 .lastBlock >.formBlock{
+    width: 409px;
+    height: 620px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    right: 11%;
+    top: 31%;
+    backdrop-filter: blur(22px);
+    z-index: 1;
+}
+
+.section9 .lastBlock >.formBlock >.formNine{
+    height: 566px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3%;
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox{
+    width: 350px;
+    height: 74px;
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    gap: 15px;
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox> .selectBlock{
+position: absolute;
+width: 200px;
+height: 150px;
+left: 35px;
+transform: translate(-22.3px ,-108.3px);
+opacity: 0;
+visibility: hidden;
+display: var(--Display);
+justify-content: var(--justifyCont);
+transition: all 0.5s ease;
+align-items: var(--items);
+flex-direction: column;
+background-color: #3b3b3b;
+color: var(--secondColor);
+font-family: var(--fontFamilyFirst);
+gap: 15px;
+font-size: 25px;
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox> .selectBlock.active{
+    transform: translate(-22.3px ,-90.3px); 
+    opacity: 1;
+visibility: visible;
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox>.selectBtn{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    right: 5px;
+    top: 5px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox>input{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    color: var(--secondColor);
+    border: none;
+    outline: none ;
+    font-family: var(--fontFamilyFirst);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    padding: 15px;
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox>span{
+    transition: all 0.5s ease;
+    font-family: var(--fontFamilyFirst);
+}
+
+.section9 .lastBlock >.formBlock form>.inputBox>input::placeholder{
+    color: var(--secondColor);
+font-family: var(--fontFamilyFirst);
+}
+
+.section9 .lastBlock >.formBlock form>.areaBox{
+    height: 200px;
+    width: 350px;
+    display: var(--Display);
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column
+}
+
+.section9 .lastBlock >.formBlock form>.areaBox>textarea{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+     border-radius: 10px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+ padding: 15px;resize: none;
+}
+
+.section9 .lastBlock >.formBlock form>.areaBox>textarea::placeholder{
+    color: var(--secondColor);
+font-family: var(--fontFamilyFirst);
+}
+
+.section9 .lastBlock >.formBlock> form >button{
+    border-radius: 15px;
+    font-family: var(--fontFamilyFirst);
+   background-color: #4c546c ;
+    color: var(--secondColor);
+    border: none;
+    font-size: 20px;
+    width: 160px;
+    height: 62px;
+}
+
+footer{
+    width: 100%;
+    height: 650px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    background-image: linear-gradient(190deg, #2c3244 43%, #000000 94%)
+}
+
+footer .GeneralBlock{
+    width: 100%;
+    height: 450px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    gap: 10%;
+}
+
+footer .GeneralBlock .MapsBlock{
+    width:600px;
+    height:400px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+}
+
+footer .GeneralBlock .MapsBlock #YMapsID{
+    width: 100%;
+    height: 100%;
+}
+
+
+footer .GeneralBlock .menuBlock{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 42.8px;
+}
+
+footer .GeneralBlock .menuBlock>h2{
+    color: var(--secondColor);
+    font-family: var(--fontFamilySecond);
+    font-size: 35px;
+}
+
+footer .GeneralBlock .menuBlock>ul{
+    list-style: none;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+footer .GeneralBlock .menuBlock>ul>li>a{
+    text-decoration: none;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    font-size: 27px;
+    line-height: 1.9em;
+
+}
+
+footer .GeneralBlock .contactBlock{
+   
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer .GeneralBlock .contactBlock>h2{
+    color: var(--secondColor);
+    font-family: var(--fontFamilySecond);
+    font-size: 35px;
+}
+
+footer .GeneralBlock .contactBlock>ul{
+    list-style: none;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    flex-direction: column;
+}
+footer .GeneralBlock .contactBlock>ul>li{
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    font-size: 18px;
+    line-height: 2.6em;
+    color: #ccc;
+}
+
+footer .GeneralBlock .contactBlock>ul>li>a{
+    text-decoration: none;
+    color: #ccc;
+    font-family: var(--fontFamilyFirst);
+    font-size: 18px;
+}
+
+footer .GeneralBlock .contactBlock>ul>li>a:nth-child(2){
+    text-decoration: underline;
+}
+
+footer .GeneralBlock .contactBlock .iconsBlock{
+    width: 100%;
+    height: 20px;
+    display: var(--Display);
+    justify-content: flex-start;
+   align-items: var(--items);
+   gap: 15px;
+
+}
+
+
+footer  .lastFooter{
+    width: 100%;
+    height: 100px;
+    display: var(--Display);
+    justify-content: flex-start;
+   align-items: var(--items);
+   gap: 55px;
+
+   padding-left: 25px;
+}
+
+footer .lastFooter>a,
+footer .lastFooter>span{
+    font-size: 10px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilyFirst);
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+footer .lastFooter>a:hover{
+    text-shadow:  var(--secondColor) 2px 1px 10px,
+                  var(--secondColor) 2px 1px 25px;
+   
+}
+
+.secondModalBlock{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+
+.secondModalBlock.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+.secondModalBlock .formBlock {
+    width: 500px;
+    height: 550px;
+    background-image: linear-gradient(190deg, #2c3244 43%, #000000 94%);
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    transform: translateY(-18px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    gap: 15px;
+}
+
+.secondModalBlock.open .formBlock{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.successBlock{
+    width: 300px;
+    height: 200px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    background-image: linear-gradient(190deg, #515769 43%, #000000 94%);
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+    top: 20%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    left: 28%;
+    transform: translate(50%, 50%);
+}
+
+ .successBlock.active{
+    opacity: 1;
+visibility: visible;
+}
+
+.successBlock>h2{
+    font-family: var(--fontFamilySecond);
+    color: var(--secondColor);
+}
+
+ .successBlock > .iconsBlock{
+    width: 65px;
+    height: 65px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    background-color: #3b3b3b;
+    color: var(--secondColor);
+    border-radius: 50%;
+}
+
+.secondModalBlock .formBlock>.headerBlock{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column; 
+    text-align: center;
+    gap: 15px;
+}
+
+.secondModalBlock .formBlock>.headerBlock>h2{
+    color: var(--secondColor);
+    font-size: 35px;
+    font-family: var(--fontFamilySecond);
+}
+
+.secondModalBlock .formBlock>.headerBlock>p{
+    color: var(--secondColor);
+    font-size: 15px;
+    font-family: var(--fontFamilySecond);
+}
+
+
+.secondModalBlock .formBlock >form{
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+    gap: 15px;
+}
+
+.secondModalBlock>.formBlock>form>input{
+    width: 360px;
+    height: 75px;
+    font-family: Play-Regular;
+    border-radius: 15px;
+    padding: 15px;
+    outline: none;
+    border: 3px solid #3b3b3b;
+}
+
+.secondModalBlock>.formBlock>form>span{
+    font-family: var(--fontFamilySecond);
+}
+
+.secondModalBlock>.formBlock>form>button{
+    width: 250px;
+    height: 75px;
+    font-family: Play-Regular;
+    border-radius: 15px;
+    font-size: 20px;
+    background: #21242c;
+    color: var(--secondColor);
+    border: none;
+}
+
+
+.secondModalBlock>.formBlock>form .checkBoxAndSpan {
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: flex-start;
+    text-align: center;
+    padding: 15px;
+    gap: 11px;
+}
+
+.secondModalBlock> .formBlock>form .checkBoxAndSpan>input {
+    margin-top: 1px;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    border: 1px solid var(--secondColor);
+    padding: 5px;
+    position: relative;
+    outline: none;
+}
+
+.secondModalBlock>.formBlock>form .checkBoxAndSpan>input[type=checkbox]:checked {
+    background-image: url(https://alpham.pro/local/templates/gradient/img/checkbox__select.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.secondModalBlock>.formBlock>form .checkBoxAndSpan>span {
+    font-size: 12px;
+    color: var(--secondColor);
+    font-family: var(--fontFamilySecond);
+}
+
+.secondModalBlock>.formBlock>form .checkBoxAndSpan>span>a {
+    color: var(--secondColor);
+    font-size: 12px;
+}
+
+.closeBtnSecond{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    color: var(--secondColor);
+}
+
+footer  .lastFooter .logoandIconBlock{
+    width: 100%;
+    height: 100px;
+    display: none;
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    flex-direction: column;
+}
+
+@media screen and (max-width:1400px) {
+    footer{
+        height: 1132px;
+        flex-direction: column;
+    }
+    footer .GeneralBlock{
+        height: 100%;
+        flex-direction: column;
+        gap: 5%;
+    }
+   footer .GeneralBlock .menuBlock{
+    display: none;
+   }
+
+   footer .lastFooter{
+    height: 250px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer .GeneralBlock .contactBlock{
+    text-align: center;
+}
+footer .GeneralBlock .contactBlock > .iconsBlock{
+    display: none;
+}
+
+footer .GeneralBlock .contactBlock>ul{
+    width: 100%;
+  
+}
+
+footer .GeneralBlock .contactBlock>ul>li{
+    font-size: 47px;
+    line-height: 1.7em;
+}
+
+footer .GeneralBlock .contactBlock>ul>li>a{
+    font-size: 47px;
+}
+
+
+footer .GeneralBlock .contactBlock>h2{
+    font-size: 45px;
+    text-align: center;
+    width: 100%;
+}
+footer  .lastFooter .logoandIconBlock{
+    display: var(--Display);
+}
+}
+
+
+@media screen and (max-width:980px) {
+    .hamburgerBtn{
+        display: flex;
+    }
+
+    footer{
+        height: 1132px;
+        flex-direction: column;
+
+    }
+ .MapsBlock{
+    width:350px;
+    height:350px;
+
+ }
+
+    footer .GeneralBlock {
+        height: 150%;
+        flex-direction: column;
+        gap: 0;
+    }
+    footer .GeneralBlock .menuBlock{
+        display: none;
+    }
+    footer .lastFooter{
+        
+            height: 250px;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+        
+    }
+
+    .section8{
+        height: 555px;
+        gap: 58px;
+    }
+
+    .section8 .GeneralBlock{
+        flex-direction: column-reverse;
+        height: 500px;
+        gap: 22%;
+    }
+    .section8 .headerBlock{
+        text-align: center; 
+    }
+
+    .section8 .GeneralBlock > .leftBlock > .block {
+        width: 100%;
+        height: 55px;
+    }
+    .section4 .content .checksBlock .phoneImage{
+        display: none;
+    }
+
+    .section4 .content .checksBlock .lists>ul>li{
+        font-size: 29px;
+    }
+
+    .section2{
+        height: auto;
+    }
+
+    .section2 .imgBlock .iconsBlock{
+        flex-wrap: wrap;
+    }
+
+    .section5 .otherBlock{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .section5 .otherBlock > .block{
+       width: 400px;
+    }
+    .section3 {
+        height: 1330px;    
+        gap: 3%;
+    }
+
+    .section3 > .formBlock{
+        width: 100%;
+       
+    }
+    .section3 .GeneralBlock{
+        flex-direction: column;
+        gap: 22px;
+        height: auto;
+    }
+
+    .section3 .GeneralBlock .block{
+        width: 74%;
+    }
+    header>nav{
+        display: none;
+    }
+    .headerfirstVariant{
+        display: none;
+    }
+    .headerSecondVariant{
+        display: flex;
+    }
+    .headerSecondVariant .headerBlock{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .section1 .content .imgBlock{
+     width: 300px;
+     height: 300px;
+    }
+
+    .section7 .formBlock .formAndImage .imgBlock{
+        display: none;
+    } 
+
+    .section7 .formBlock{
+        width: 100%;
+    height: 650px;
+    background-image: linear-gradient(#4c546c 43%, #000000 94%);
+    display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: center;
+    flex-direction: column;
+    padding-left: 35px;
+    padding-top: 25px;
+    gap: 27px;
+    }
+
+    .section7 .formBlock .formAndImage  > form > .inputBox{
+        width: 100%;
+    }
+   
+
+    .section7 .headerBlock>h2{
+        font-size: 40px;
+    }
+
+    .section7 .headerBlock>p{
+        font-size: 25px;
+    }
+
+    .section7 .formBlock .formhead{
+        text-align: center;
+    }
+
+    .section9 .lastBlock > .content {
+        position: absolute;
+        left: 9%;
+        top: 0%;
+        text-align: center;
+}
+.section9 .lastBlock >.formBlock {
+    right: 19%;
+    top: 31%;
+}
+.rectangle{
+    width: 623px;
+}
+.contactBlock > .iconsBlock{
+    display: none;
+}
+
+.section6{
+    height: 1000px;
+}
+}
+
+@media screen and (max-width: 640px){
+footer .GeneralBlock .MapsBlock{
+    width: 300px;
+    height: 300px;
+ }
+
+ .section3  .formBlock{
+    width: 100%;
+   
+}
+.section9 .lastBlock >.formBlock {
+    right: 5%;
+        top: 33%;
+}
+} 
+
+
+
+
+
+
+
+
+@media screen and (max-width: 340px){
+    .section7 {
+        height: 1000px;
+    }
+    .section5{
+        height: auto;
+    }
+    .section5> .otherBlock >.block {
+        height: 400px;
+        width: 100%;
+flex-direction: column;
+justify-content: center;
+    }
+
+    .section5 .otherBlock > .block .content {
+        line-height: 16px;
+        align-items: center;
+    }
+
+    footer .GeneralBlock .contactBlock>ul>li {
+        font-size: 47px;
+        line-height: 1.7em;
+    
+}
+
+.section5 .otherBlock > .block > .imgBlock {
+    width: 228px;
+    height: 228px;
+    gap: 0;
+}
+
+.section5 .otherBlock > .block > .imgBlock>img{
+    
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.section7 .formBlock > .formAndImage > form > button {
+    width: 274px;
+    height: 65px;
+    border-radius: 15px;
+    font-family: var(--fontFamilyFirst);
+    background-image: linear-gradient(#4c546c 43%, #000000 94%);
+    color: var(--secondColor);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.section8 .GeneralBlock > .rightBlock  {
+width: 100%;
+}
+
+
+    footer .GeneralBlock .contactBlock>ul>li {
+        font-size: 25px;
+        line-height: 1.7em;
+        text-align: center;
+    }
+    footer .GeneralBlock .contactBlock>ul>li>a {
+        font-size: 25px;
+        
+    }
+
+
+.section7 .formBlock > .formAndImage > form > button {
+    width: 250px;
+}
+
+footer{
+    height: 1000px;
+}
+
+footer .GeneralBlock {
+    height: 120%;
+    flex-direction: column;
+}
+.section8 .GeneralBlock > .leftBlock > .block {
+    width: 120%;
+    height: 55px;
+}
+
+.section8 .GeneralBlock > .rightBlock .imgBlock {
+    width: 250px;
+    height: 50px;
+}
+.section8 .GeneralBlock > .leftBlock {
+    height: 100%;
+}
+
+.section6 .Blocks .Block {
+    width: 500px;
+    height: 307px;
+}
+.section6 {
+    height: 1100px;
+}
+
+.section6 > .Blocks > .Block> .topBlock {
+    width: 103%;
+}
+.section6 > .Blocks > .Block> .topBlock>span:nth-child(1){
+font-size: 10px;
+}
+.section6 > .Blocks > .Block> .topBlock>span:nth-child(2){
+    font-size: 18px;
+    }
+
+    .section8 .GeneralBlock > .leftBlock > .block>span {
+        font-size: 13px;
+    }
+
+    .section9 .lastBlock >.formBlock form>.areaBox {
+        height: 200px;
+        width: 267px;
+    }
+
+    .section9 .lastBlock >.formBlock {
+        width: 313px;
+    }
+
+    .section9 .lastBlock >.formBlock form>.inputBox {
+        width: 266px;
+    }
+
+    .section9 {
+        height: 1000px;
+    }
+
+    .section4 .content .checksBlock .lists>ul>li {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .section4{
+        height: 500px;
+    }
+
+    
+    .headerSecondVariant > .headerBlock a {
+        color: var(--secondColor);
+        font-family: var(--fontFamilySecond);
+        font-size: 11px;
+    }
+
+    .headerSecondVariant > .headerBlock {
+        gap: 21px;
+        justify-content: space-between;
+    }
+
+    .section3 .GeneralBlock .block {
+        width: 80%;
+        height: 114%;
+        flex-direction: column;
+    }
+
+    .section3 > .formBlock > form > .submitBtn{
+        width: 300px;
+    }
+    .section3 > .formBlock > form > .areaBox {
+        width: 300px;
+    }
+
+    .section3 > .formBlock > form > .inputBox {
+        width: 300px;
+    }
+    .section3{
+        height: 100%;
+    }
+    .section3 .GeneralBlock .block>.imgBlock {
+        width: 100%;
+        height: 100%;
+         display: var(--Display);
+    justify-content: var(--justifyCont);
+    align-items: var(--items);
+    }
+
+    .section3 .GeneralBlock .block>.imgBlock>img{
+        width: 100%;
+        height: 100%;
+    }
+}

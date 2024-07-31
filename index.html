@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>  
+    <title>Document</title>
+  </head>
+  <body>
+     <div class="sideBtns">
+        <a href="#"><i class="fa-solid fa-question"></i></a>
+        <hr>
+        <a href="#"><i class="fa-solid fa-phone"></i></a>
+     </div> 
+    <div class="modalBlock">
+      <div class="content">
+        <div class="closeModalBtn">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h3>Задать Вопрос</h3>
+        <h6>
+          Оставьте свои контактные данные, и мы <br />
+          свяжемся с Вами в течение 20 минут
+        </h6>
+        <div class="formBlock">
+          <form class="FormTwo">
+            <input type="text" placeholder="Ваш Телефон" class="modalPhoneInput" />
+            <span class="alertPhone"></span>
+            <button class="sendBtn">Отправить</button>
+            <div class="checkBoxAndSpan">
+              <input
+                type="checkbox"
+                checked
+                autocomplete="off"
+                required
+                name=""
+                id=""
+              />
+              <span
+                >Нажимая на кнопку, я соглашаюсь с условиями <br />
+                <a href="#">политики конфиденциальности.</a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="secondModalBlock">
+        <div class="formBlock">
+            <div class="closeBtnSecond">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="headerBlock">
+                <h2>Форма для заполнения</h2>
+                <p>Оставьте свои контактные данные, и мы <br> свяжемся с Вами в течение 20 минут</p>
+            </div>
+            <form class="modalForm">
+                <input type="text" class="modalPhoneVal" placeholder="Ваш телефон">
+                <input type="text" class="modalEmailVal" placeholder="@Почта*">
+                <span class="modalFormAlert"></span>
+                <button>ОТПРАВИТЬ ЗАЯВКУ</button>
+                <div class="checkBoxAndSpan">
+<input type="checkbox" name="" id="">
+<span>Нажимая на кнопку, я соглашаюсь с условиями<br>
+    <a href="#">Политики конфиденциальности</a></span>
+                </div>
+            </form>
+        </div>
+       
+    </div>
+    <div class="successBlock">
+          
+      <div class="iconsBlock">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h2> Ваша заявка успешно <br> отправлена!</h2>
+    </div>
+
+    <div class="navigationBar">
+      <nav>
+        <ul>
+          <li><a href="#">
+           <div class="iconBlock iconBlock1"></div>
+            УСЛУГИ 
+       
+          </a>
+          </li>
+          <li><a href="#">
+            <div class="iconBlock iconBlock2"></div>
+            КЕЙСЫ 
+         
+          </a>
+        </li>
+          <li>
+            <a href="#">
+              <div class="iconBlock iconBlock3"></div>
+              ЕЩЁ 
+             
+            </a>
+          </li>
+        </ul>
+        <button class="QuestionBtn">
+          задать вопрос
+          <div class="imgBlock">
+            <img src="	https://alpham.pro/img/svg/btn-arrow.svg" alt="" />
+          </div>
+        </button>
+      </nav>
+    </div>
+    <header class="headerfirstVariant"> 
+     
+      <a href="#" class="logo">
+        <img src="https://alpham.pro/img/svg/alpham-logo_white.svg" alt="" />
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">УСЛУГИ</a>
+            <div class="dropdown dropdown1">
+                <ul>
+                    <li>
+                      <a  href="#">Контекстная Реклама <i class="fa-solid fa-caret-right"></i></a>
+                    </li>
+                    <li><a href="#">Разработка сайтов</a></li>
+                    <li><a href="#">Дизайн</a></li>
+                    <li><a href="#">Телефония</a></li>
+                    <li><a href="#">CRM</a></li>
+                    <li><a href="#">Сервер</a></li>
+                </ul>
+            </div>
+        </li>
+          <li>
+            <a href="#">КЕЙСЫ</a>
+            <div class="dropdown dropdown2">
+                <ul>
+                    <li><a href="#">Контекстная Реклама</a></li>
+                    <li><a href="#">Разработка сайтов</a></li>
+                    <li><a href="#">Дизайн</a></li>
+                    <li><a href="#">Телефония</a></li>
+                    <li><a href="#">CRM</a></li>
+                    <li><a href="#">Сервер</a></li>
+                </ul>
+            </div>
+        </li>
+          <li>
+            <a href="#">ЕЩЁ</a>
+            <div class="dropdown dropdown3">
+                <ul>
+                    <li><a href="#">Контекстная Реклама</a></li>
+                    <li><a href="#">Разработка сайтов</a></li>
+                    <li><a href="#">Дизайн</a></li>
+                    <li><a href="#">Телефония</a></li>
+                    <li><a href="#">CRM</a></li>
+                    <li><a href="#">Сервер</a></li>
+                </ul>
+            </div>
+        </li>
+        </ul>
+        <div class="iconBlock">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="searchBlock">
+          <form action="">
+            <div class="icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="text" class="search" name="search" id="search" />
+            <button name="s" value="search">Искать</button>
+          </form>
+          <div class="closeBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+      </nav>
+
+      <div class="phoneNumberAndButtonBlock">
+        <a href="#"><i class="fa-solid fa-phone"></i> 8 812 409-52-22</a>
+        <button class="QuestionBtn">
+          задать вопрос
+          <div class="imgBlock">
+            <img src="	https://alpham.pro/img/svg/btn-arrow.svg" alt="" />
+          </div>
+        </button>
+      </div>
+    </header>
+    <header class="headerSecondVariant">
+      <div class="headerBlock"> 
+        <a href="#" class="logo">
+        <img src="https://alpham.pro/img/svg/alpham-logo_white.svg" alt="" />
+      </a>
+      <a href="#"><i class="fa-solid fa-phone"></i> 8 812 409-52-22</a>
+    </div>
+      <div class="headerBlock">
+        <div class="hamburgerBtn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="inputBox">
+          <div class="iconBlock"> <i class="fa-solid fa-magnifying-glass"></i></div>
+          <input type="text">
+        </div>
+      </div>
+    </header>
+    <section class="section section1">
+     
+      <div class="content">
+        <div class="contentHeader">
+          <h2>CRM</h2>
+        </div>
+        <div class="imgBlock">
+          <img src="images/Блок1 (1).png" alt="" />
+        </div>
+        <div class="btnBlock">
+          <button>Оставить заявку</button>
+        </div>
+      </div>
+      <div class="vectorsBlock">
+        <img class="vectors" src="images/Capa 1.png" alt="" />
+      </div>
+    </section>
+    <section class="section section2">
+      <div class="imgBlock">
+        <h2>Управление бизнес-процессами</h2>
+
+        <div class="iconsBlock">
+          <div class="block">
+            <div class="icon">
+              <img src="images/Vector.png" alt="" />
+            </div>
+            <p>
+              Повышение <br />
+              эффективности <br />
+              отдела продаж
+            </p>
+          </div>
+          <div class="block">
+            <div class="icon">
+              <img src="images/Удобное общение.png" alt="" />
+            </div>
+            <p>Удобное общение <br />с заказчиками</p>
+          </div>
+          <div class="block">
+            <div class="icon">
+              <img src="images/Лучшие CRM.png" alt="" />
+            </div>
+            <p>
+              Лучшие <br />
+              CRM-системы
+            </p>
+          </div>
+          <div class="block">
+            <div class="icon">
+              <img src="images/Карточка.png" alt="" />
+            </div>
+            <p>
+              Карточка с историей событий для <br />
+              каждого заказчика
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section3">
+      <div class="vectorsGroup">
+        <img class="vectors" src="images/Group 1.png" alt="" />
+      </div>
+
+      <div class="GeneralBlock">
+        <div class="block">
+          <div class="imgBlock">
+            <img src="images/Б24 (1).png" alt="" />
+          </div>
+          <div class="lists">
+            <h4>Функции:</h4>
+            <ul>
+              <li><img src="images/check-circle-1.png" alt="" />CRM</li>
+              <li>
+                <img src="images/check-circle-1.png" alt="" />Интеграция с
+                другими <br />
+                сервисами
+              </li>
+              <li><img src="images/check-circle-1.png" alt="" />Онлайн-бот</li>
+            </ul>
+          </div>
+        </div>
+        <div class="block">
+          <div class="imgBlock">
+            <img src="images/Б24 (2).png" alt="" />
+          </div>
+          <div class="lists">
+            <h4>Функции:</h4>
+            <ul>
+              <li><img src="images/check-circle-1.png" alt="" />CRM</li>
+              <li>
+                <img src="images/check-circle-1.png" alt="" />Корпоративный
+                портал
+              </li>
+              <li><img src="images/check-circle-1.png" alt="" />Онлайн офис</li>
+              <li>
+                <img src="images/check-circle-1.png" alt="" />Интеграция с
+                другими <br />
+                сервисами и т.д
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="formBlock">
+        <h2>Оставить заявку</h2>
+        <p>
+          Выберите систему для вашего бизнеса, и мы <br />
+          свяжемся с Вами в течение 20 минут
+        </p>
+
+        <form class="formThree">
+          <div class="inputBox">
+            <input placeholder="Ваше имя" class="nameValue" type="text" />
+            <span class="inputAlert inputAlert1"></span>
+          </div>
+          <div class="inputBox">
+            <input placeholder="Телефон" class="phoneValue" type="text" />
+            <span class="inputAlert inputAlert2"></span>
+          </div>
+          <div class="inputBox">
+            <input placeholder="Выберите систему" class="selectValue" type="text" />
+            <span class="inputAlert inputAlert3"></span>
+          </div>
+          <div class="areaBox">
+            <textarea class="messageValue";
+              placeholder="Напишите что вас интересует,например: &nbsp; Покупка лицензии amoCRM"
+            ></textarea>
+            <span class="inputAlert inputAlert4"></span>
+          </div>
+          <button class="submitBtn">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+      </div>
+    </section>
+    <section class="section section4">
+      <div class="content">
+        <div class="header">
+          <h1>КОМУ ПОЛЕЗНА CRM</h1>
+        </div>
+        <div class="checksBlock">
+          <div class="lists">
+            <ul>
+              <li>
+                <img src="images/Checkbox.png" alt="" /> Любому бизнесу,
+                работающему <br />
+                с клиентской базой
+              </li>
+              <li>
+                <img src="images/Checkbox.png" alt="" /> Бизнесу, управляющему
+                ассортиментом
+              </li>
+              <li>
+                <img src="images/Checkbox.png" alt="" /> Бизнесу, где есть
+                задачи, планирование, <br />
+                отчетность и KPI
+              </li>
+            </ul>
+          </div>
+
+          <div class="phoneImage">
+            <img src="images/Group 1321314625.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section5">
+      <div class="headerBlock">
+        <h2>CRM В БИЗНЕСЕ</h2>
+        <p>Наши кейсы</p>
+      </div>
+      <div class="otherBlock">
+        <div class="block">
+          <div class="imgBlock">
+            <img src="images/IconOne.png" alt="" />
+            <span>г. Санкт-Петербур</span>
+          </div>
+          <div class="content">
+            <h2>“Пестовский Лесокомбинат”</h2>
+            <p>Строительная компания</p>
+            <span>Работают на платформе amoCRM</span>
+            <button class="MoreBtn">Подробнее</button>
+          </div>
+        </div>
+        <div class="block">
+          <div class="imgBlock">
+            <img src="images/iconTwo.png" alt="" />
+            <span>Россия</span>
+          </div>
+          <div class="content">
+            <h2>Магазин “Mongol Store”</h2>
+            <p>Одежда из натуральной шерсти</p>
+            <span>Используют БитриксCRM</span>
+            <button class="MoreBtn">Подробнее</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section6">
+      <div class="headerBlock">
+        <h2>СТОИМОСТЬ ПОДКЛЮЧЕНИЯ</h2>
+      </div>
+      <div class="Blocks">
+        <div class="Block">
+          <div class="topBlock">
+            <span>Подключение системы CRM</span>
+            <span>от 10 000 ₽</span>
+          </div>
+          <div class="centerBlock">
+            <span>
+              <img src="images/Path.png" alt="" />
+              <p>Покупка любого тарифа со скидкой</p>
+            </span>
+          </div>
+          <div class="buttonBlock">
+            <button class="orderBtn">
+              ЗАКАЗАТЬ
+              <div class="imgBlock">
+                <img src="	https://alpham.pro/img/svg/btn-arrow.svg" alt="" />
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="Block">
+          <div class="topBlock">
+            <span
+              >Подключение системы CRM + <br />
+              настройка</span
+            >
+            <span>от 15 000 ₽</span>
+          </div>
+          <div class="centerBlock">
+            <span>
+              <img src="images/Path.png" alt="" />
+              <p>Покупка любого тарифа со скидкой</p>
+            </span>
+            <span>
+              <img src="images/Path.png" alt="" />
+              <p>Индивидуальная настройка системы</p>
+            </span>
+          </div>
+          <div class="buttonBlock">
+            <button class="orderBtn">
+              ЗАКАЗАТЬ
+              <div class="imgBlock">
+                <img src="	https://alpham.pro/img/svg/btn-arrow.svg" alt="" />
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="Block">
+          <div class="topBlock">
+            <span
+              >Продление лицензий <br />
+              amoCRM и Битрикс24</span
+            >
+            <span>от 10 000 ₽</span>
+          </div>
+          <div class="centerBlock">
+            <span>
+              <img src="images/Path.png" alt="" />
+              <p>
+                Возможность продления лицензий со скидкой от <br />
+                официальных цен
+              </p>
+            </span>
+          </div>
+          <div class="buttonBlock">
+            <button class="orderBtn">
+              ЗАКАЗАТЬ
+              <div class="imgBlock">
+                <img src="	https://alpham.pro/img/svg/btn-arrow.svg" alt="" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section7">
+      <div class="headerBlock">
+        <h2>Заявка на подбор и подключение CRM-системы</h2>
+        <p>
+          Проведем аудит, подготовим решение для вашего <br />
+          бизнеса и рассчитаем стоимость
+        </p>
+      </div>
+      <div class="formBlock">
+        <div class="headerBlock">
+          <h2 class="formhead">Заполните форму</h2>
+          <p class="formParagraph">
+            Оставьте свои контактные данные, <br />мы свяжемся с Вами в течение
+            20 минут
+          </p>
+        </div>
+        <div class="formAndImage">
+          <form class="formEight">
+            <div class="inputBox">
+              <input placeholder="Ваше имя"  class="Name"  />
+              <span class="alert alert1"></span>
+            </div>
+            <div class="inputBox">
+              <input placeholder="Телефон" type="text"  class="Phone" />
+              <span class="alert alert2"></span>
+            </div>
+            <div class="inputBox">
+              <input placeholder="Выберите систему" class="Select" type="text" />
+              <span class="alert alert3"></span>
+              <div class="selectBtnSecond">
+                <i class="fa-solid fa-caret-down"></i>
+               </div>
+               <div class="selectBlockSecond">
+                <span class="selectsSecond">Битрикс24</span>
+                <span class="selectsSecond">amoCRM</span>
+               </div>
+            </div>
+            <button class="submitBtn">ОТПРАВИТЬ ЗАЯВКУ</button>
+          </form>
+
+          <div class="imgBlock">
+            <img src="images/Group 1321314633.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section8">
+      <div class="headerBlock">
+        <h2>НАШ ПАРТНЁР ПО CRM-СИСТЕМАМ</h2>
+      </div>
+      <div class="GeneralBlock">
+        <div class="leftBlock">
+          <div class="block">
+            <span>Битрикс24 (Управление бизнесом)</span>
+            <img src="images/Icon.png" alt="" />
+          </div>
+          <div class="block">
+            <span>amoCRM (Управление бизнесом)</span>
+            <img src="images/Icon.png" alt="" />
+          </div>
+        </div>
+        <div class="rightBlock">
+          <div class="imgBlock">
+            <img src="images/Image.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section9">
+      <div class="lastBlock">
+        <div class="content">
+          <h2>Напишите нам!</h2>
+          <p>
+            Заполните заявку и Мы <br />
+            свяжемся с Вами в течение <br />
+            15 минут
+          </p>
+          <span>Команда Alpha marketing</span>
+        </div>
+          <div class="rectangle">
+          
+          </div>
+       
+        
+        <div class="formBlock">
+          <form class="formNine">
+            <div class="inputBox">
+              <input placeholder="Ваше имя" type="text" class="TextInput"/>
+              <span class="alert nameAlert"></span>
+            </div>
+            <div class="inputBox">
+              <input placeholder="Телефон" type="text" class="NumberInput"/>
+              <span class="alert numberAlert"></span>
+            </div>
+            <div class="inputBox">
+              <input placeholder="Выберите систему" class="SelectInput" type="text" />
+             <div class="selectBtn">
+              <i class="fa-solid fa-caret-down"></i>
+             </div>
+             <div class="selectBlock">
+              <span class="selects">Битрикс24</span>
+              <span class="selects">amoCRM</span>
+             </div>
+              <span class="alert selectAlert"></span>
+            </div>
+            <div class="areaBox">
+              <textarea class="messageInput" placeholder="задать вопрос"></textarea>
+              <span class="alert messageAlert"></span>
+            </div>
+            <button type="submit" class="submitBtn">задать вопрос</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="GeneralBlock">
+        <div class="menuBlock">
+            <h2>Меню</h2>
+          <ul>
+            <li><a href="#">УСЛУГИ</a></li>
+            <li><a href="#">КЕЙСЫ</a></li>
+            <li><a href="#">ЕЩЁ</a></li>
+          </ul>
+          <a href="#" class="logo">
+            <img
+              src="https://alpham.pro/img/svg/alpham-logo_white.svg"
+              alt=""
+            />
+          </a>
+        </div>
+        <div class="contactBlock">
+            <h2>Контакты</h2>
+          <ul>
+            <li>Санкт-Петербург </li>
+              
+             <li>Заозёрная 8, к.2, офис 202</li> 
+            
+            <li>Пн-Пт, 10:00 - 18:00</li>
+            <li><a href="#">8 (812) 409-52-22</a></li>
+            <li><a href="#">info@alpham.pro</a></li>
+          </ul>
+          <div class="iconsBlock">
+              <a href="#"><img src="	https://alpham.pro/img/svg/tg.svg" alt=""></a>
+            <a href="#"><img src="	https://alpham.pro/img/svg/vk.svg" alt=""></a>
+          </div>
+        </div>
+        <div class="MapsBlock">
+          <div id="YMapsID"></div>
+        </div>
+      </div>
+      <div class="lastFooter">
+        <div class="logoandIconBlock">
+          <a href="#" class="logo">
+            <img
+              src="https://alpham.pro/img/svg/alpham-logo_white.svg"
+              alt=""
+            />
+          </a>
+          <div class="iconsBlock">
+            <a href="#"><img src="	https://alpham.pro/img/svg/tg.svg" alt=""></a>
+            <a href="#"><img src="	https://alpham.pro/img/svg/vk.svg" alt=""></a>
+          </div>
+        </div>
+    <span>© 2024 Альфа маркетинг</span>
+    <a href="#">Политика конфиденциальности</a>
+    <a href="#">Карта сайта</a>
+      </div>
+    </footer>
+
+  
+  
+    <script src="js/script.js"></script>
+    <script src="js/Validation.js"></script>
+
+    <script>
+      let center = [59.907478, 30.324797];
+      function init() {
+        let myMap = new ymaps.Map("YMapsID", {
+          center: center,
+          zoom: 18,
+        });
+
+        let placemark = new ymaps.Placemark(
+          center,
+          {},
+          {
+            iconLayout: "default#image",
+            iconImageHref: "../images/mapMarker.png",
+            iconImageSize: [40, 40],
+            iconImageOffset: [-19, -44],
+          }
+        );
+        myMap.controls.remove("searchControl"); // удаляем поиск
+        myMap.controls.remove("trafficControl"); // удаляем контроль трафика
+        myMap.controls.remove("rulerControl"); // удаляем контрол правил
+        myMap.behaviors.disable(["scrollZoom"]); // отключаем скролл карты (опционально)
+      }
+      ymaps.ready(init);
+    </script>
+
+   
+ 
+
+  </body>
+</html>
